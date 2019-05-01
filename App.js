@@ -1,4 +1,7 @@
+import React from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
+import { Provider } from 'react-redux';
+import store from "./store/index";
 import Home  from './components/Home';
 import Topshots  from './components/Topshots';
 
@@ -17,8 +20,18 @@ const AppNavigator = createStackNavigator(
       headerTitleStyle: {
         fontWeight: 'bold',
       },
-    },
+    }, 
   }
 );
 
-export default createAppContainer(AppNavigator);
+const AppContainer = createAppContainer(AppNavigator);
+
+const App = () => {
+  return (
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+  );
+}
+
+export default App;
