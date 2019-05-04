@@ -1,32 +1,42 @@
 import { 
-  GET_SHOTS_SUCCESS,
-  GET_SHOTS_ERROR, 
-  LIKE_SHOT
+  GET_REVIEWS_SUCCESS,
+  GET_REVIEWS_ERROR, 
+  LIKE_REVIEW,
+  DISLIKE_REVIEW
 } from '../constants/action-types';
 
 const initialState = {
-  shots: [],
-  shotsErr: null,
+  reviews: [],
+  reviewsErr: null,
+  likes: [],
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_SHOTS_SUCCESS:
+    case GET_REVIEWS_SUCCESS:
       return {
         ...state,
-        shots: action.shots,
-        shotsErr: null
+        reviews: action.reviews,
+        reviewsErr: null
       }
-    case GET_SHOTS_ERROR:
+    case GET_REVIEWS_ERROR:
       return {
         ...state,
-        shotsErr: action.err,
+        reviewsErr: action.err,
       }
-    case LIKE_SHOT:
+    case LIKE_REVIEW:
       return {
         ...state,
-        shots: action.shots,
-        shotsErr: null,
+        likes: action.likes,
+        reviews: state.reviews,
+        reviewsErr: null,
+      }
+    case DISLIKE_REVIEW:
+      return {
+        ...state,
+        likes: action.likes,
+        reviews: state.reviews,
+        reviewsErr: null,
       }
     default:
       return state;

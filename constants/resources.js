@@ -1,0 +1,1 @@
+export const NYT_PLACEHOLDER = 'https://library.rice.edu/sites/default/files/library-news-images/nyt.png';

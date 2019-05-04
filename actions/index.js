@@ -1,15 +1,39 @@
-import { GET_SHOTS_SUCCESS ,LIKE_SHOT } from '../constants/action-types';
+import { assignIn, get, filter, unionBy, uniq } from 'lodash';
+import { GET_REVIEWS_SUCCESS ,LIKE_REVIEW, GET_REVIEWS_ERROR, DISLIKE_REVIEW } from '../constants/action-types';
+import { NYT_API, NYT_REVIEWS_ALL, NYT_REVIEWS_PICKS, NYT_ACCESS_TOKEN } from '../constants/apis';
 
-export function getShots() {
+export function getReviewsAll() {
   return function(dispatch) {
-    return fetch("https://jsonplaceholder.typicode.com/posts")
-      .then(response => response.json())
+    return fetch(NYT_API + NYT_REVIEWS_ALL + NYT_ACCESS_TOKEN)
+      .then(res => res.json())
       .then(json => {
-        dispatch({ type: GET_SHOTS_SUCCESS, shots: json });
+        dispatch({ type: GET_REVIEWS_SUCCESS, reviews: get(json, 'results') });
+      }).catch(err => {
+        dispatch({ type: GET_REVIEWS_ERROR, err });
       });
   };
 }
 
-export function likeShot(shots) {
-  return { type: LIKE_SHOT, shots }
+//TASK: We have to make a middleware to make liked reviews collection by 'assignIn' a new fields, merge them into reviews collection by 'unionBy'
+//And save that here and 'concat' 'uniq' likes into likes collection
+export function likeReview(like) {
+  return function(dispatch, getState ) {
+    const { likes, reviews } = getState();
+    const newLike = assignIn(like, { liked: true });
+    const newLikes = uniq(likes.concat(newLike));
+    const newReviews =  unionBy(newLikes, reviews, ['display_title', 'headline']);
+
+    return dispatch({ type: LIKE_REVIEW, reviews: newReviews, likes: newLikes });
+  }
+};
+
+export function dislikeReview(like) {
+  return function(dispatch, getState ) {
+    const { likes, reviews } = getState();
+    const newLike = assignIn(like, { liked: false });
+    const newLikes = filter(likes, ({ display_title, headline }) => (display_title !== newLike.display_title && headline !== newLike.headline));
+    const newReviews =  unionBy(newLikes, reviews, ['byline', 'display_title', 'headline']);
+    
+    return dispatch({ type: DISLIKE_REVIEW, reviews: newReviews, likes: newLikes });
+  }
 };
