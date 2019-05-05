@@ -3,7 +3,7 @@ import { FlatList } from 'react-native';
 import ReviewCard from './ReviewCard';
 import styles from './styles';
 
-export default List = ({ navigation, data }) => {
+const List = ({ navigation, data }) => {
   return (
     <FlatList
       style={styles.flatList}
@@ -13,3 +13,5 @@ export default List = ({ navigation, data }) => {
     />
   )
 }
+
+export default List;

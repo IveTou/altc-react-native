@@ -10,16 +10,14 @@ export default StyleSheet.create({
   },
   flatList: {
     flex: 1,
-    paddingTop: 30,
-    backgroundColor: '#ecf0f1',
     padding: 8,
+    paddingTop: 30,
+    paddingBottom: 30,
+    backgroundColor: '#ecf0f1',
     overflow: 'scroll',
   },
   surface: {
     margin: 4,
     elevation: 2,
-  },
-  actions: {
-    textAlign: 'right',
   },
 });
