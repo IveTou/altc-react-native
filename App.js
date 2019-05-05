@@ -6,6 +6,9 @@ import Home  from './pages/Home';
 import Topreviews  from './pages/Topreviews';
 import Details  from './pages/Details';
 
+document.body.style.display = "-webkit-box";
+document.body.style.overflowX = 'hidden';
+
 const AppNavigator = createStackNavigator(
   {
     Home: { screen: Home },
