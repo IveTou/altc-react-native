@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from "react-redux";
 import { Colors, IconButton } from 'react-native-paper';
+import { Text, View } from 'react-native';
 import List from '../components/List';
 import LoadingView from '../components/LoadingView';
+import Footer from '../components/Footer';
 import { getReviewsAll } from '../actions';
+import { rootStyles as styles } from './styles';
 
 class Home extends Component {
   constructor(props) {
@@ -21,7 +24,15 @@ class Home extends Component {
   render() {
     const { reviews = [], navigation } = this.props;
     return reviews.length ? 
-      <List data={reviews} navigation={navigation}/> : 
+      <>
+        <View style={styles.view}>
+          <Text style={styles.text}>
+            The New York Times Movie Reviews
+          </Text>
+        </View>
+        <List data={reviews} navigation={navigation}/>]
+        <Footer />
+      </> : 
       <LoadingView />;
   }
 }

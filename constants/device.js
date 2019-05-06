@@ -2,16 +2,16 @@ import { Dimensions } from "react-native";
 const { height, width, scale, fontScale } = Dimensions.get("window");
 
 const screenSize = (width) => {
-  if(width >= 1920) {
-    return 'xl'
-  } else if(width >= 1280) {
-    return 'lg'
-  } else if (width > 960) {
-    return 'md';
+  if(width >= 1280) {
+    return { name: 'xl', value: 4 };
+  } else if(width >= 960) {
+    return { name: 'lg', value: 3 };
   } else if (width > 600) {
-    return 'sm';
+    return { name: 'md', value: 2 };
+  } else if (width > 300) {
+    return { name: 'sm', value: 1 };
   } else {
-    return 'xs';
+    return { name: 'xs', value: 0 };
   }
 }
 

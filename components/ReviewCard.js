@@ -32,11 +32,11 @@ class ReviewCard extends Component {
     const { item, navigation: { navigate, state: { routeName } } } = this.props;
     return (
       <Surface style={styles.surface}>
-        <Card>
+        <Card style={styles.card}>
           <Card.Cover source={{ uri: `${item.multimedia ? item.multimedia.src : NYT_PLACEHOLDER}` }} />
           <Card.Content>
-            <Title>{item.display_title}</Title>
-            <Subheading>{item.headline}</Subheading>
+            <Title  style={styles.title}>{item.display_title}</Title>
+            <Subheading  style={styles.subheading}>{item.headline}</Subheading>
             <Paragraph>Publication: {item.publication_date}</Paragraph>
           </Card.Content>
           <Card.Actions style={styles.actions}>
