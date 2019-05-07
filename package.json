@@ -5,11 +5,13 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web --non-interactive",
+    "test": "jest --env=jsdom",
     "eject": "expo eject"
   },
   "dependencies": {
     "babel-preset-expo": "^5.0.0",
     "expo": "^33.0.0-alpha.web.1",
+    "expo-react-native-adapter": "^3.0.1",
     "lodash": "^4.17.11",
     "react": "^16.5.0",
     "react-dom": "^16.8.6",
@@ -22,5 +24,11 @@
     "redux-thunk": "^2.3.0",
     "schedule": "^0.4.0"
   },
-  "private": true
+  "jest": {
+    "preset": "jest-expo"
+  },
+  "private": true,
+  "devDependencies": {
+    "jest-expo": "^32.0.0"
+  }
 }

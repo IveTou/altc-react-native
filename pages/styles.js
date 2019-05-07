@@ -19,7 +19,7 @@ export const rootStyles = StyleSheet.create({
 
 export const detailsStyles = StyleSheet.create({
   card: {
-    boxShadow: 'none',
+    //boxShadow: 'none',
   },
   title: {
     fontSize: 32,
