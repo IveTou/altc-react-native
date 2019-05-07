@@ -16,5 +16,7 @@ RUN yarn add -g expo-cli
 RUN git clone https://github.com/IveTou/altec-frontend-test.git
 
 RUN yarn install --network-timeout 100000
+
+RUN expo build:web
     
 CMD yarn web
