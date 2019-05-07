@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { 
   Button,
   Card,
@@ -9,7 +10,7 @@ import {
   Surface,
   Title,
 } from 'react-native-paper';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import styles from './styles';
 import { likeReview, dislikeReview } from '../actions';
 import { NYT_PLACEHOLDER } from '../constants/resources';
@@ -64,5 +65,10 @@ const mapDispatchToProps = dispatch => {
     dislikeReview: (like) => dispatch(dislikeReview(like)),
   };
 }
+
+ReviewCard.propTypes = {
+  item: PropTypes.object,
+  navigation: PropTypes.object,
+};
 
 export default connect(null, mapDispatchToProps)(ReviewCard);

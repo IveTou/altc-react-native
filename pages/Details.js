@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { get } from 'lodash';
 import { 
   Card,
@@ -41,5 +42,9 @@ Details.navigationOptions = ({ navigation }) => {
   const { display_title } = get(navigation, 'state.params.data');
   return { title: display_title };
 }
+
+Details.propTypes = {
+  navigation: PropTypes.object,
+};
 
 export default Details;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { FlatList } from 'react-native';
 import ReviewCard from './ReviewCard';
 import device from '../constants/device';
@@ -16,5 +17,10 @@ const List = ({ navigation, data }) => {
     />
   )
 }
+
+List.propTypes = {
+  data: PropTypes.array,
+  navigation: PropTypes.object,
+};
 
 export default List;

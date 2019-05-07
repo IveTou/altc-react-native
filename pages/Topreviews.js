@@ -1,5 +1,6 @@
 import React from 'react';
-import { connect } from "react-redux";
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Text, View } from 'react-native';
 import List from '../components/List';
 import Footer from '../components/Footer';
@@ -25,6 +26,11 @@ Topreviews.navigationOptions = {
 
 const mapStateToProps = state => {
   return { likes: state.likes };
+};
+
+Topreviews.propTypes = {
+  likes: PropTypes.array,
+  navigation: PropTypes.object,
 };
 
 export default connect(mapStateToProps)(Topreviews);

@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Colors, IconButton } from 'react-native-paper';
 import { Text, View } from 'react-native';
 import List from '../components/List';
@@ -76,5 +77,11 @@ const mapDispatchToProps = dispatch => {
     getReviewsAll: () => dispatch(getReviewsAll())
   };
 }
+
+Home.propTypes = {
+  navigation: PropTypes.object,
+  reviews: PropTypes.array,
+  reviewsErr: PropTypes.object,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
