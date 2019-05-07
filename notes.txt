@@ -1,8 +1,0 @@
-code= 701f222b540482605d9b18e48ccf9bc709a8d5b7939fee40fc7374ff41b6674f
-
-{
-    "access_token": "9c5aa4232577920a287d0ac2ef051e4b1a4ef96404d8dd07a7a88609abbdbbed",
-    "token_type": "Bearer",
-    "scope": "public",
-    "created_at": 1556734528
-}
