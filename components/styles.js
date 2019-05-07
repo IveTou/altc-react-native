@@ -39,8 +39,8 @@ export default StyleSheet.create({
   },
   footer: {
     padding: 32,
-    position: value > 1 ? 'absolute' : 'relative',
-    bottom: 0,
+    position: 'absolute',
+    bottom: 0 ,
     left: 0,
     width: '100%',
     backgroundColor: 'purple',
