@@ -22,7 +22,19 @@ class Home extends Component {
   hideModal = () => this.setState({ visible: false });
 
   render() {
-    const { reviews = [], navigation } = this.props;
+    const { reviews = [], navigation, reviewsErr } = this.props;
+    if(reviewsErr) {
+      return (
+        <>
+        <View style={styles.view}>
+          <Text style={styles.text}>
+            The page cannot be displayed. Please try again later
+          </Text>
+        </View>
+        </>
+      )
+    }
+
     return reviews.length ? 
       <>
         <View style={styles.view}>
@@ -53,7 +65,10 @@ Home.navigationOptions = ({ navigation: { navigate } }) => {
 }
 
 const mapStateToProps = state => {
-  return { reviews: state.reviews };
+  return { 
+    reviews: state.reviews,
+    reviewsErr: state.reviewsErr, 
+  };
 };
 
 const mapDispatchToProps = dispatch => {

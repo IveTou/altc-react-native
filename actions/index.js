@@ -7,9 +7,11 @@ export function getReviewsAll() {
     return fetch(NYT_API + NYT_REVIEWS_ALL + 'api-key=' + NYT_ACCESS_TOKEN)
       .then(res => res.json())
       .then(json => {
-        dispatch({ type: GET_REVIEWS_SUCCESS, reviews: get(json, 'results') });
-      }).catch(err => {
-        dispatch({ type: GET_REVIEWS_ERROR, err });
+        if(json.errors) {
+          dispatch({ type: GET_REVIEWS_ERROR, err: get(json, 'errors') });
+        } else {
+          dispatch({ type: GET_REVIEWS_SUCCESS, reviews: get(json, 'results') });
+        }
       });
   };
 }
