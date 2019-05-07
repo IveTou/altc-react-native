@@ -1,13 +1,20 @@
 FROM node:latest
 
+ENV wdir /app
+RUN mkdir -p ${wdir}
+WORKDIR ${wdir}
+
 EXPOSE 19000
 EXPOSE 19001
+EXPOSE 19006
 
 RUN apt-get update && \ 
-    npm install -g expo-cli
+    apt-get install yarn && \
+    apt-get install git && \
 
+RUN yarn add -g expo-cli
 RUN git clone https://github.com/IveTou/altec-frontend-test.git
-RUN npm config set fetch-retry-maxtimeout 100000 && \
-    npm i
+
+RUN yarn install --network-timeout 100000
     
-CMD npm run web
+CMD yarn web
