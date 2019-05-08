@@ -26,13 +26,11 @@ class Home extends Component {
     const { reviews = [], navigation, reviewsErr } = this.props;
     if(reviewsErr) {
       return (
-        <>
         <View style={styles.view}>
           <Text style={styles.text}>
             The page cannot be displayed. Please try again later
           </Text>
         </View>
-        </>
       )
     }
 

@@ -40,7 +40,7 @@ export default StyleSheet.create({
     //textOverflow: 'ellipsis',
   },
   footer: {
-    padding: 32,
+    padding: 8,
     position: 'absolute',
     bottom: 0 ,
     left: 0,
@@ -49,7 +49,7 @@ export default StyleSheet.create({
   },
   footerText: {
     fontSize: value > 1 ? 32 : 18,
-    margin: 8,
+    margin: 4,
     fontWeight: 'bold',
     textAlign: 'center',
     color: 'white',
