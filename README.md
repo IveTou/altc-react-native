@@ -34,9 +34,11 @@ For a web deployment just follow these steps:
 #### Android/iOS
 This project the following steps describe how to deploy this app using Expo DevTools and Metro Builder in a development environment. The expo package version which is used for web deployment is not part of an official Expo SDK version and  does not provide support for interactive Android/iOS devices with metro builder and 
 
+
+- In package.json file, change `"expo": "^33.0.0-alpha.web...",` to `"expo": "^32.0.0",`
 - Run `rm -rf node_modules/ && yarn cache clean`
 - Run `npm i`
-- Install the last expo package by `npm i expo --save`
+- Run `rm -rf $TMPDIR/haste-map-* && rm -rf $TMPDIR/metro-cache*` to clean metro cache
 - Run `npm run start`.
 - Make sure the server and target device is in the same network
 - Scan the QR code above with the [Expo app](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR) (Android) or the Camera app (iOS).
