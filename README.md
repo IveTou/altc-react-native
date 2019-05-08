@@ -10,6 +10,8 @@ The next sections will present how to install, run and test the app.
 **Disclaimers:**
 > Web support in Expo is experimental and subject to breaking changes. Do not use this in production yet. Therefore, the provided dockerfile was not tested for production environment.
 > The provided API key is currently hard coded to ease the first glance and test. In the next versions, this resource should be provided by an environment variable,thus the user have to resister at NYT API and request an API KEY by their own.
+> This project was tested in Ubuntu 16.04 LTS. Some of commands described below may require administrator permision (prepend `sudo` in ubuntu) 
+> About Expo CLI and SDK web support beta we are using: "It is stable enough for you to start playing with it, but not quite stable enough that you should use it to deploy an important app to production quite yet. Additionally, **it will not be until the next SDK version that Expo Web projects are compatible with managed Android and iOS projects since this web beta is not part of an official Expo SDK version.**" [blog.expo.io - Evan Bacon](https://blog.expo.io/expo-cli-and-sdk-web-support-beta-d0c588221375)
 
 
 ## Set Up
@@ -22,15 +24,19 @@ The next sections will present how to install, run and test the app.
 ## Running the app with Expo DevTools
 
 #### Web
+
+We are using a **experimental** web support for the Expo CLI and SDK.
 For a we deployment just follow this steps:
 
 - Run `yarn web`.
 - You can now view **Frontend Test** in the browser.
 
 #### Android/iOS
-This project the folowwing steps describe how to deploy this app using Expo DevTools and Metro Builder in a development environment. The expo package version which is used for a web deployment, does not belong to canonical expo versions, and  does not provides support for iteractive Android/iOS devices wirh metro builder and 
+This project the folowwing steps describe how to deploy this app using Expo DevTools and Metro Builder in a development environment. The expo package version which is used for a web deployment, is not part of an official Expo SDK version, and  does not provides support for iteractive Android/iOS devices with metro builder and 
 
-- Install the last expo package by `yarn add expo --save`
+"expo": "^32.0.0",
+
+- Install the last expo package by `yarn add expo@^32.0.0 --save`
 - Run `yarn start`.
 - Make sure the server and target device is in the same network
 - Scan the QR code above with the [Expo app](https://play.google.com/store/apps/details?id=host.exp.exponent&hl=pt_BR) (Android) or the Camera app (iOS).
