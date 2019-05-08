@@ -1,13 +1,16 @@
 import React from 'react';
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import { Provider } from 'react-redux';
+import { Platform } from 'react-native';
 import store from "./store/index";
 import Home  from './pages/Home';
 import Topreviews  from './pages/Topreviews';
 import Details  from './pages/Details';
 
-document.body.style.display = "-webkit-box";
-document.body.style.overflowX = 'hidden';
+if(Platform.OS !== 'ios' && Platform.OS !== 'android') {
+  document.body.style.display = "-webkit-box";
+  document.body.style.overflowX = 'hidden';
+}
 
 const AppNavigator = createStackNavigator(
   {
