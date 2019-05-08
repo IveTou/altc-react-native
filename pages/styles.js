@@ -9,7 +9,7 @@ export const rootStyles = StyleSheet.create({
     maxWidth: 720,
   },
   text: {
-    fontSize: value > 1 ? 52 : 40,
+    fontSize: value > 1 ? 52 : 24,
     marginTop: value > 1 ? 32 : 16,
     marginBottom: value > 1 ? 40 : 24,
     fontWeight: 'bold',

@@ -43,7 +43,7 @@ class Home extends Component {
             The New York Times Movie Reviews
           </Text>
         </View>
-        <List data={reviews} navigation={navigation}/>]
+        <List data={reviews} navigation={navigation}/>
         <Footer />
       </> : 
       <LoadingView />;
